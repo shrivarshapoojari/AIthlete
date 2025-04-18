@@ -55,4 +55,9 @@ public class ActivityService {
         return  activityRepository.findByUserId(userId);
 
     }
+
+    public Activity getActivity(String activityId) {
+
+        return  activityRepository.findById(activityId).orElseThrow(()->new RuntimeException("Not found"));
+    }
 }

@@ -23,7 +23,7 @@ public class ActivityController {
         return  ResponseEntity.ok(activityService.trackActivity(request));
 
     }
-    @GetMapping("/{userId}")
+    @GetMapping("/user/{userId}")
     public  ResponseEntity<List<Activity>>getUserActivity(
             @PathVariable String userId
 
@@ -31,5 +31,15 @@ public class ActivityController {
     )
     {
         return  ResponseEntity.ok(activityService.getUserActivity(userId));
+    }
+
+    @GetMapping("/activity/{activityId}")
+    public  ResponseEntity<Activity>getActivity(
+            @PathVariable String activityId
+
+
+    )
+    {
+        return  ResponseEntity.ok(activityService.getActivity(activityId));
     }
 }
