@@ -8,6 +8,8 @@ import com.aithlete.activityservice.repository.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActivityService {
 
@@ -47,4 +49,10 @@ public class ActivityService {
         return response;
     }
 
+    public List<Activity> getUserActivity(String userId) {
+
+
+        return  activityRepository.findByUserId(userId);
+
+    }
 }
