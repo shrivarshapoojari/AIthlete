@@ -1,0 +1,26 @@
+package com.aithlete.activityservice.controller;
+
+import com.aithlete.activityservice.dto.ActivityRequest;
+import com.aithlete.activityservice.dto.ActivityResponse;
+import com.aithlete.activityservice.service.ActivityService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/activities")
+public class ActivityController {
+
+    @Autowired
+    private ActivityService activityService;
+
+    @PostMapping()
+    public ResponseEntity<ActivityResponse> trackActivity(@RequestBody ActivityRequest request)
+    {
+        return  ResponseEntity.ok(activityService.trackActivity(request));
+
+    }
+}
