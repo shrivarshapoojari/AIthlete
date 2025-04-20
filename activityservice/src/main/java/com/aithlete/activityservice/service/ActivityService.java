@@ -16,7 +16,17 @@ public class ActivityService {
 
     @Autowired
     private ActivityRepository activityRepository;
-    public ActivityResponse trackActivity(ActivityRequest request) {
+
+    @Autowired
+    private  UserValidationService userValidationService;
+
+    public ActivityResponse trackActivity(ActivityRequest request) throws Exception {
+
+        boolean isValidUser=userValidationService.
+
+                validateUser(request.getUserId());
+
+
 
 
         Activity activity=Activity.builder().
